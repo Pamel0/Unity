@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 public class Zadanie5 : MonoBehaviour
 {
-    public GameObject cubePrefab; // Prefabrykat Cube
-    public int numberOfCubes = 10; // Liczba generowanych kostek
-    public float planeSize = 5f; // Rozmiar płaszczyzny
+    public GameObject cubePrefab; 
+    public int numberOfCubes = 10; 
+    public float planeSize = 5f; 
 
-    private HashSet<Vector3> positions = new HashSet<Vector3>(); // Zestaw pozycji
+    private HashSet<Vector3> positions = new HashSet<Vector3>(); 
 
     void Start()
     {
@@ -15,7 +15,6 @@ public class Zadanie5 : MonoBehaviour
         {
             Vector3 randomPosition = GetRandomPosition();
 
-            // Tworzenie kostki na wylosowanej pozycji
             Instantiate(cubePrefab, randomPosition, Quaternion.identity);
         }
     }
@@ -26,11 +25,10 @@ public class Zadanie5 : MonoBehaviour
 
         do
         {
-            // Losowa pozycja w granicach płaszczyzny
             position = new Vector3(Random.Range(-planeSize, planeSize), 0.5f, Random.Range(-planeSize, planeSize));
-        } while (positions.Contains(position)); // Sprawdzenie, czy pozycja już istnieje
+        } while (positions.Contains(position)); 
 
-        positions.Add(position); // Dodanie pozycji do zestawu
+        positions.Add(position); 
 
         return position;
     }
