@@ -1,6 +1,6 @@
 using UnityEngine;
  
-public class CubeMover : MonoBehaviour
+public class Zadanie2: MonoBehaviour
 {
     public float speed = 20f; 
     private bool movingRight = true; 
