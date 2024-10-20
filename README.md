@@ -1,3 +1,3 @@
 Projektowanie gier w środowisku UNITY, 
-student Klaudiusz Grzeszczyk 
+student **Klaudiusz Grzeszczyk**
 UWM ISI
