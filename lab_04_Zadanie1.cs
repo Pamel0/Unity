@@ -1,12 +1,11 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RandomCubesGenerator : MonoBehaviour
 {
-    public GameObject block; 
-    public Material[] materials; 
+    public GameObject block;
+    public Material[] materials;
     public int numberOfBlocks = 10; 
     public float delay = 3.0f; 
     public GameObject platform; 
@@ -24,17 +23,28 @@ public class RandomCubesGenerator : MonoBehaviour
         Renderer renderer = platform.GetComponent<Renderer>();
         if (renderer == null)
         {
-            Debug.LogError("Brak komponentu Renderer na obiekcie platformy. Skrypt nie mo¿e dzia³aæ poprawnie.");
+            Debug.LogError("Brak komponentu Renderer na obiekcie platformy");
             return;
         }
 
         Bounds bounds = renderer.bounds;
 
+        Renderer blockRenderer = block.GetComponent<Renderer>();
+        if (blockRenderer == null)
+        {
+            Debug.LogError("Brak komponentu Renderer na obiekcie block");
+            return;
+        }
+
+        float blockHeight = blockRenderer.bounds.size.y;
+
         for (int i = 0; i < numberOfBlocks; i++)
         {
             float randomX = UnityEngine.Random.Range(bounds.min.x, bounds.max.x);
             float randomZ = UnityEngine.Random.Range(bounds.min.z, bounds.max.z);
-            positions.Add(new Vector3(randomX, 5, randomZ));
+            float randomY = bounds.min.y + (blockHeight / 2);
+
+            positions.Add(new Vector3(randomX, randomY, randomZ));
         }
 
         foreach (Vector3 elem in positions)
@@ -47,13 +57,16 @@ public class RandomCubesGenerator : MonoBehaviour
 
     IEnumerator GenerujObiekt()
     {
-        Debug.Log("Wywo³ano coroutine");
+        Debug.Log("Wywołano coroutine");
         foreach (Vector3 pos in positions)
         {
             GameObject newBlock = Instantiate(block, pos, Quaternion.identity);
-            
-            Material randomMaterial = materials[UnityEngine.Random.Range(0, materials.Length)];
-            newBlock.GetComponent<Renderer>().material = randomMaterial;
+
+            if (materials.Length > 0)
+            {
+                Material randomMaterial = materials[UnityEngine.Random.Range(0, materials.Length)];
+                newBlock.GetComponent<Renderer>().material = randomMaterial;
+            }
 
             yield return new WaitForSeconds(delay);
         }
