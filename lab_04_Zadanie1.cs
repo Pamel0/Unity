@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class RandomCubesGenerator : MonoBehaviour
 {
-    public GameObject block; // obiekt do generowania
-    public Material[] materials; // tablica materia³ów
-    public int numberOfBlocks = 10; // liczba obiektów do generowania
-    public float delay = 3.0f; // opóŸnienie
-    public GameObject platform; // obiekt platformy
+    public GameObject block; 
+    public Material[] materials; 
+    public int numberOfBlocks = 10; 
+    public float delay = 3.0f; 
+    public GameObject platform; 
 
     private List<Vector3> positions = new List<Vector3>();
 
@@ -25,14 +25,14 @@ public class RandomCubesGenerator : MonoBehaviour
         Renderer renderer = platform.GetComponent<Renderer>();
         if (renderer == null)
         {
-            Debug.LogError("Brak komponentu Renderer na obiekcie platformy. Skrypt nie mo¿e dzia³aæ poprawnie.");
+            Debug.LogError("Brak komponentu Renderer na obiekcie platformy. Skrypt nie moÂ¿e dziaÂ³aÃ¦ poprawnie.");
             return;
         }
 
         // Pobieramy rozmiar platformy
         Bounds bounds = renderer.bounds;
 
-        // Generujemy losowe pozycje w obrêbie platformy
+        // Generujemy losowe pozycje w obrÃªbie platformy
         for (int i = 0; i < numberOfBlocks; i++)
         {
             float randomX = UnityEngine.Random.Range(bounds.min.x, bounds.max.x);
@@ -51,13 +51,13 @@ public class RandomCubesGenerator : MonoBehaviour
 
     IEnumerator GenerujObiekt()
     {
-        Debug.Log("Wywo³ano coroutine");
+        Debug.Log("WywoÂ³ano coroutine");
         foreach (Vector3 pos in positions)
         {
             // Tworzymy obiekt
             GameObject newBlock = Instantiate(block, pos, Quaternion.identity);
 
-            // Losujemy materia³
+            // Losujemy materiaÂ³
             Material randomMaterial = materials[UnityEngine.Random.Range(0, materials.Length)];
             newBlock.GetComponent<Renderer>().material = randomMaterial;
 
