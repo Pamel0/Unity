@@ -15,7 +15,6 @@ public class RandomCubesGenerator : MonoBehaviour
 
     void Start()
     {
-        // Sprawdzamy, czy platforma ma komponent Renderer
         if (platform == null)
         {
             Debug.LogError("Nie wskazano obiektu platformy.");
@@ -29,10 +28,8 @@ public class RandomCubesGenerator : MonoBehaviour
             return;
         }
 
-        // Pobieramy rozmiar platformy
         Bounds bounds = renderer.bounds;
 
-        // Generujemy losowe pozycje w obrêbie platformy
         for (int i = 0; i < numberOfBlocks; i++)
         {
             float randomX = UnityEngine.Random.Range(bounds.min.x, bounds.max.x);
@@ -45,7 +42,6 @@ public class RandomCubesGenerator : MonoBehaviour
             Debug.Log(elem);
         }
 
-        // Uruchamiamy coroutine
         StartCoroutine(GenerujObiekt());
     }
 
@@ -54,10 +50,8 @@ public class RandomCubesGenerator : MonoBehaviour
         Debug.Log("Wywo³ano coroutine");
         foreach (Vector3 pos in positions)
         {
-            // Tworzymy obiekt
             GameObject newBlock = Instantiate(block, pos, Quaternion.identity);
-
-            // Losujemy materia³
+            
             Material randomMaterial = materials[UnityEngine.Random.Range(0, materials.Length)];
             newBlock.GetComponent<Renderer>().material = randomMaterial;
 
