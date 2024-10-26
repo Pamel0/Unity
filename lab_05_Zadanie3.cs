@@ -52,7 +52,7 @@ public class TreePlatform : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Gracz wszed³ na platformê.");
+            Debug.Log("Gracz wszedÂ³ na platformÃª.");
             isMoving = true; 
         }
     }
@@ -61,7 +61,7 @@ public class TreePlatform : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Gracz zszed³ z platformy.");
+            Debug.Log("Gracz zszedÂ³ z platformy.");
             isMoving = false; 
         }
     }
