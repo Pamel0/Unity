@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class SlidingDoor : MonoBehaviour
+public class Drzwi : MonoBehaviour
 {
-    public GameObject player; // Mo¿na przypisaæ w inspektorze lub znaleŸæ dynamicznie
+    public GameObject player; 
     public float openDistance = 3f;
     public float slideSpeed = 2f;
     private Vector3 closedPosition;
@@ -11,7 +11,7 @@ public class SlidingDoor : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player"); // Zmiana, aby znaleŸæ gracza dynamicznie
+        player = GameObject.FindGameObjectWithTag("Player"); 
         closedPosition = transform.position;
         openPosition = closedPosition + new Vector3(2.3f, 0f, 0f);
     }
