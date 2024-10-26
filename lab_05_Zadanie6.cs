@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class PlayerCollision : MonoBehaviour
+public class Collision : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            Debug.Log("Rozpoczêto kontakt z przeszkod¹!");
+            Debug.Log("RozpoczÃªto kontakt z przeszkodÂ¹!");
         }
     }
 }
