@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Drzwi : MonoBehaviour
+public class Door : MonoBehaviour
 {
     public GameObject player; 
     public float openDistance = 3f;
