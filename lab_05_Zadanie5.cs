@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class PressurePlate : MonoBehaviour
+public class JumpPad : MonoBehaviour
 {
-    public float JumpPad = 3.0f;
+    public float jumpMultiplier = 3.0f;
 
     private void OnTriggerEnter(Collider other)
     {
