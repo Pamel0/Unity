@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomCubesGenerator : MonoBehaviour
+public class Zadanie1 : MonoBehaviour
 {
     public GameObject block;
     public Material[] materials;
