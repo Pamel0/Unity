@@ -7,11 +7,11 @@ public class LookAround : MonoBehaviour
     public Transform player;
 
     public float sensitivity = 200f;
-    public float smoothTime = 0.1f; // Czas wygładzania
-    private float rotationY = 0f; // Zmienna do przechowywania kąta X
-    private float rotationX = 0f; // Zmienna do przechowywania kąta Y
-    private float xVelocity = 0f; // Zmienna do wygładzania X
-    private float yVelocity = 0f; // Zmienna do wygładzania Y
+    public float smoothTime = 0.1f; 
+    private float rotationY = 0f; 
+    private float rotationX = 0f; 
+    private float xVelocity = 0f; 
+    private float yVelocity = 0f; 
 
     void Start()
     {
@@ -26,7 +26,6 @@ public class LookAround : MonoBehaviour
         rotationX += mouseXMove;
         rotationY -= mouseYMove;
 
-        // Ograniczamy kąt rotacji w osi Y (X)
         rotationY = Mathf.Clamp(rotationY, -90f, 90f);
 
         float targetRotationX = Mathf.SmoothDampAngle(player.eulerAngles.y, rotationX, ref xVelocity, smoothTime);
