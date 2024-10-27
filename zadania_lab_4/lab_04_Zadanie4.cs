@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LookAround : MonoBehaviour
+public class Zadanie4 : MonoBehaviour
 {
     public Transform player;
 
