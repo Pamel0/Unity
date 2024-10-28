@@ -6,7 +6,7 @@ public class Collision : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            Debug.Log("Rozpoczêto kontakt z przeszkod¹!");
+            Debug.Log("Rozpoczeto kontakt z przeszkoda!");
         }
     }
 }
