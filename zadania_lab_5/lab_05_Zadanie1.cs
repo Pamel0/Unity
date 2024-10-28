@@ -7,7 +7,7 @@ public class Platform : MonoBehaviour
     public float speed = 2f; 
     private bool isMoving = false; 
     private bool movingToB = true; 
-    private int playerCount = 0; // Counter for players on the platform
+    private int playerCount = 0;
 
     void Update()
     {
@@ -32,7 +32,7 @@ public class Platform : MonoBehaviour
     {
         if (other.CompareTag("Player")) 
         {
-            playerCount++; // Increment player count
+            playerCount++;
             isMoving = true; 
             other.transform.parent = transform; 
         }
@@ -42,10 +42,10 @@ public class Platform : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerCount--; // Decrement player count
+            playerCount--;
             if (playerCount <= 0) 
             {
-                isMoving = false; // Stop moving if no players are on the platform
+                isMoving = false;
             }
             other.transform.parent = null; 
         }
